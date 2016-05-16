@@ -1,6 +1,6 @@
 /*
     28
-    Симметрия
+    symmetry
 */
 #include <iostream>
 #include <cmath>
