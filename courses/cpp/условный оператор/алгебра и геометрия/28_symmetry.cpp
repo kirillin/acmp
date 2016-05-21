@@ -1,36 +1,18 @@
-/*
-    28
-    symmetry
-*/
-// add this comment for test git :)
 #include <iostream>
-#include <cmath>
- 
+
 using namespace std;
- 
+
 int main() {
-    long long x1, y1, x2, y2;
-    long long xa, ya;
+    int x1, y1, x2, y2, xa, ya, xb, yb;
     cin >> x1 >> y1 >> x2 >> y2;
     cin >> xa >> ya;
     if (x1 == x2) {
-        if (abs(xa) > abs(x1)) {
-            cout << (-1) * (xa - x1);
-        } else if (abs(xa) < abs(x1)){
-            cout << x1 - xa + x1;
-        } else {
-            cout << xa;
-        }
-        cout << " " << ya;      
+	xb = 2 * x1 - xa;
+	yb = ya;
     } else if (y1 == y2) {
-        cout << xa << " ";          
-        if (abs(ya) > abs(y1)) {
-            cout << (-1) * (ya - y1);
-        } else if (abs(ya) < abs(y1)){
-            cout << y1 - ya + y1;
-        } else {
-            cout << ya;
-        }
+	xb = xa;
+	yb = 2 * y1 - ya;
     }
+    cout << xb << " " << yb;
     return 0;
 }
