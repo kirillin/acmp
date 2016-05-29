@@ -11,10 +11,12 @@ using namespace std;
 int main() {
 	long long a, b, c, d;
 	cin >> a >> b >> c >> d;
+	long x_old = -101;
 	for (int x = -100; x <= 100; x++) {
 		if ((a*x*x*x + b*x*x + c*x + d) == 0) {
-			if (((3 * a * x * x + 2 * b * x + c) != 0) || (x == 0)) {
-				cout << x << " ";
+			if (x != x_old) {
+				cout << x << ' ';
+				x_old = x;
 			}
 		}
 	}
