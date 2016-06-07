@@ -16,6 +16,7 @@ int main() {
   min = 99999;
   max = -99999;
   while (!in.eof()) {
+    out << n << " " << in.eof() << endl;    
     in >> n;
     if (count % 2 == 0) {
       if (n > max) {
@@ -28,6 +29,6 @@ int main() {
     }
     count++;
   }
-  out << (max + min) << endl;
+  //out << (max + min) << endl;
 	return 0;
 }
