@@ -11,24 +11,14 @@ using namespace std;
 int main() {
   ifstream in("input.txt");
   ofstream out("output.txt");
-  int k, sum;
-  bool f_zero, s_zero;
+  int k, sum, prev;
   sum = 0;
-  f_zero = false;
-  s_zero = false;
+  k = -1;
   do {
+    prev = k;
     in >> k;
     sum += k;
-    // im monkey ))
-    if (k == 0) {
-      if (f_zero == true) {
-        s_zero = true;
-      }
-      f_zero = true;
-    } else {
-      f_zero = false;
-    }
-  } while (s_zero != true);
+  } while ((k != prev) || (k != 0));
   out << sum << endl;
-    return 0;
+  return 0;
 }
