@@ -11,19 +11,18 @@ using namespace std;
 int main() {
   ifstream in("input.txt");
   ofstream out("output.txt");
-  int k, first, length;
-  in >> first;
-  length = 0;
-  if (first != 0) {
+  int prev, el, qty;
+  qty = 0;
+  in >> prev;
+  if (prev != 0) {
     do {
-      in >> k;
-      if (k > first) {
-        length++;
-      } else if (k < first){
-        first = k;
+      in >> el;
+      if (el > prev) {
+        qty++;
       }
-    } while (k != 0);
+      prev = el;
+    } while (el != 0);
   }
-  out << length << endl;
+  out << qty << endl;
     return 0;
 }
