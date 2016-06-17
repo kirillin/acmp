@@ -5,27 +5,39 @@
   Artemov Kirill
 */
 #include <iostream>
+#include <iomanip>
 #include <cmath>
  
+#define EPSX 0.001
+#define NMAX 1000
+
 using namespace std;
 
+int a, b, c, d;
+
+double f(double x) {
+  return a * x*x*x + b * x*x + c * x + d;
+}
+
 int main() {
-
-  epsx = 0.001;
-  // from right side to left by step 1
-  xr = 1;
-  xl = 0;
-  while (sign(yxl) == sign(yxr)) {
-    yxl = a * xl*xl*xl + b * xl*xl + c * xl + d;
-    yxr = a * xr*xr*xr + b * xr*xr + c * xr + d;
-    xr++;
-    xl++;
+  int n;
+  double xr, xl, xm, xd;
+  cin >> a >> b >> c >> d;  
+  xl = -10001;
+  xr = 10000;
+  xd = xr - xl;
+  while (n <= NMAX) {
+    xm = (xl + xr) / 2.0;
+    if ((f(xm) == 0) || ((xr - xl) / 2 < EPSX)) {
+      break;
+    }
+    n++;
+    if (signbit(f(xm)) == signbit(f(xl))) {
+      xl = xm;
+    } else {
+      xr = xm;
+    }
   }
-
-  while ((xr - xl) > epsx) {
-
-  }
-
-
+  cout << fixed << setprecision(4) << xm << endl;
   return 0;
 }
