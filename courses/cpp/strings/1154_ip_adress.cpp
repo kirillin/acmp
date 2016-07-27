@@ -37,7 +37,7 @@ int main() {
   int qty_bytes = 0;
   bool answer = true;
   while (!in.eof()) {
-    while ((in >> sym && sym != '.') && !in.eof()) {
+    while ((in >> sym && (sym != '.')) && !in.eof()) {
       count++;
       switch (count) {
         case 1: s1 = sym; break;
@@ -47,20 +47,25 @@ int main() {
         case 5: s5 = sym; break;
       }
     }
-    int byte = getByte(s1, s2, s3, s4, s5, count);
-    cout << byte << endl;
-    if (!((byte >= 0) && (byte <= 255))) {
-      answer = false;
-      break;
-    }
-    qty_bytes++;
-    if (qty_bytes == 1) {
-      if (byte == 0) {
+    if (count != 0) {
+      int byte = getByte(s1, s2, s3, s4, s5, count);
+      cout << byte << endl;
+      if (!(byte <= 255)) {
         answer = false;
         break;
       }
+      qty_bytes++;
+      if (qty_bytes == 1) {
+        if (byte == 0) {
+          answer = false;
+          break;
+        }
+      }
+      count = 0;
+    } else {
+      answer = false;
+      break;
     }
-    count = 0;
   }
   if ((answer) && (qty_bytes == 4)) {
     out << "Good";
