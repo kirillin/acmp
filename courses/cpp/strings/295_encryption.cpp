@@ -47,7 +47,7 @@ char shift(char sym, int offset) {
   return codeSym+65;
 }
 
-string cicleShift(string encription, int offset) {
+string cycleShift(string encription, int offset) {
   string str = encription;
   for (int j = 0; j < str.length(); j++) {
     str[j] = shift(str[j], 1);
@@ -70,7 +70,7 @@ int main() {
         flag = true;
         res = encription;
       }
-      encription = cicleShift(encription, i);
+      encription = cycleShift(encription, i);
     }
   }    
   if (flag) {
